@@ -20,4 +20,4 @@ mv wordpress /var/www/html/blog
 chmod o+w /var/www/html/blog
 chown $USER:$USER  -R /var/www/html/blog
 systemctl restart apache2
-systemctl status apache2
+cp support/checkserver.php /var/www/html/blog
