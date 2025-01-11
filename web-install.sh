@@ -20,6 +20,8 @@ chmod o+w /var/www/html/blog
 chown www-data:www-data -R /var/www/html/blog/
 echo -n "Input Your Domain: ";
 read domain
+cp support/ssldomain.pem /etc/apache2/ssl/domain.pem
+cp support/ssldomain.key /etc/apache2/sss/domain.key
 cp support/apache2.conf /etc/apache2/
 cp support/domain.conf /etc/apache2/sites-available/$domain.conf
 sudo a2ensite $ndomain.conf
