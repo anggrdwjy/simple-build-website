@@ -10,10 +10,12 @@ Before using this program, make sure to update the repository `sudo apt update` 
 * Database MySQL 8.0
 * PHP Language 8.3
 * Wordpress Lastest Update
+* VirtuaHost with SSL (Custom Case)
 
 ## Harderning
 * IPTABLES drop DoS-Attack
 * Patching Disable_Functions & Open_Basedir
+* Enable Firewall Filter and Allow Ports
 
 ## Testing OS
 * Ubuntu 24.04
