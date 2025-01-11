@@ -7,10 +7,11 @@ sudo apt install mysql-server -y
 echo -n "Password Root Your Database: ";
 read passmysql
 mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$passmysql';" 
-sudo apt install php php-cli php-zip libapache2-mod-php php-mysql phpmyadmin -y
+sudo apt install php php-cli php-zip libapache2-mod-php php-mysql -y
 mv /etc/apache2/mods-enabled/dir.conf dir.conf.bak
 cp support/dir.conf /etc/apache2/mods-enabled/dir.conf
 systemctl restart apache2
+sudo apt install phpmyadmin -y
 wget https://wordpress.org/latest.zip
 unzip latest.zip
 mv wordpress /var/www/html/blog/
