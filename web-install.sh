@@ -15,9 +15,10 @@ mv /etc/php/8.3/apache2/php.ini php.ini.bak
 cp support/php.ini /etc/php/8.3/apache2
 systemctl restart apache2
 mv /var/www/html/index.html index.html.bak
+cp support/html-index.html /var/www/html/index.html
 wget https://wordpress.org/latest.zip && unzip latest.zip
 mv wordpress /var/www/html/blog
+chown $USER:$USER -R /var/www/html/blog
 chmod o+w /var/www/html/blog
-chown $USER:$USER  -R /var/www/html/blog
 systemctl restart apache2
-cp support/checkserver.php /var/www/html/blog/
+cp support/checkserver.php /var/www/html/check.php
