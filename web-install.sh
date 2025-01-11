@@ -20,17 +20,4 @@ unzip latest.zip
 mv wordpress /var/www/html/blog/
 chmod o+w /var/www/html/blog
 chown www-data:www-data -R /var/www/html/blog/
-echo -n "Input Your Domain: ";
-read domain
-a2enmod ssl
-mkdir /etc/apache2/ssl
-chmod -R 777 /etc/apache2/ssl
-cp support/ssldomain.pem /etc/apache2/ssl/
-touch /etc/apache2/ssl/ssldomain.pem
-cp support/ssldomain.key /etc/apache2/ssl/
-touch /etc/apache2/ssl/ssldomain.key
-cp support/apache2.conf /etc/apache2/
-cp support/domain.conf /etc/apache2/sites-available/$domain.conf
-sudo a2ensite $domain.conf
-sudo a2dissite 000-default
 systemctl restart apache2
