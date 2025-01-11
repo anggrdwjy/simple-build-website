@@ -23,3 +23,5 @@ chmod o+w /var/www/html/blog
 systemctl restart apache2
 iptables -I INPUT -p tcp --dport 80 -m connlimit --connlimit-above 20 --connlimit-mask 40 -j DROP
 sudo ufw allow in "Apache Full"
+sudo ufw allow in "OpenSSH"
+sudo ufw enable
