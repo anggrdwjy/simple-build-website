@@ -16,7 +16,8 @@ cp support/php.ini /etc/php/8.3/apache2
 systemctl restart apache2
 mv /var/www/html/index.html index.html.bak
 wget https://wordpress.org/latest.zip && unzip latest.zip
-mv wordpress /var/www/html
-chmod o+w /var/www/html
-chown -R $USER:$USER /var/www/html
+mv wordpress /var/www/html/blog
+chmod o+w /var/www/html/blog
+chown $USER:$USER  -R /var/www/html/blog
 systemctl restart apache2
+systemctl status apache2
