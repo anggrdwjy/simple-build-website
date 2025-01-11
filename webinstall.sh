@@ -2,6 +2,8 @@
 sudo apt update
 sudo apt install software-properties-common -y
 sudo apt install zip unzip -y
+sudo timedatectl set-timezone Asia/Jakarta 
+sudo timedatectl set-ntp on
 sudo apt install apache2 -y
 sudo apt install mysql-server -y
 echo -n "Password Your Database: ";
