@@ -21,3 +21,5 @@ mv wordpress /var/www/html/blog
 chown $USER:$USER -R /var/www/html/blog
 chmod o+w /var/www/html/blog
 systemctl restart apache2
+iptables -I INPUT -p tcp --dport 80 -m connlimit --connlimit-above 20 --connlimit-mask 40 -j DROP
+sudo ufw allow in "Apache Full"
