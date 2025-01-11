@@ -14,10 +14,8 @@ cp support/dir.conf /etc/apache2/mods-enabled/
 mv /etc/php/8.3/apache2/php.ini php.ini.bak
 cp support/php.ini /etc/php/8.3/apache2
 systemctl restart apache2
-sudo apt install phpmyadmin -y
-wget https://wordpress.org/latest.zip
-unzip latest.zip
-mv wordpress /var/www/html/blog/
-chmod o+w /var/www/html/blog
-chown www-data:www-data -R /var/www/html/blog/
+wget https://wordpress.org/latest.zip && unzip latest.zip
+mv wordpress /var/www/html
+chmod o+w /var/www/html
+chown -R $USER:$USER /var/www/html
 systemctl restart apache2
