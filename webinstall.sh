@@ -8,7 +8,9 @@ sudo apt install apache2 -y
 sudo apt install mysql-server -y
 echo -n "Password Your Database: ";
 read passmysql
-mysql -e "CREATE DATABASE wordpress;" 
+echo -n "Name Database: ";
+read database
+mysql -e "CREATE DATABASE '$database';" 
 mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$passmysql';"
 sudo apt install php php-cli php-zip libapache2-mod-php php-mysql -y
 mv /etc/apache2/mods-enabled/dir.conf dir.conf.bak
@@ -24,6 +26,3 @@ chown $USER:$USER -R /var/www/html/blog
 chmod o+w /var/www/html/blog
 systemctl restart apache2
 iptables -I INPUT -p tcp --dport 80 -m connlimit --connlimit-above 20 --connlimit-mask 40 -j DROP
-sudo ufw allow in "Apache Full"
-sudo ufw allow in "OpenSSH"
-sudo ufw enable
