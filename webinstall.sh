@@ -8,9 +8,7 @@ sudo apt install apache2 -y
 sudo apt install mysql-server -y
 echo -n "Password Your Database: ";
 read passmysql
-echo -n "Name Database: ";
-read database
-mysql -e "CREATE DATABASE '$database';" 
+mysql -e "CREATE DATABASE wordpress;" 
 mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$passmysql';"
 sudo apt install php php-cli php-zip libapache2-mod-php php-mysql -y
 mv /etc/apache2/mods-enabled/dir.conf dir.conf.bak
