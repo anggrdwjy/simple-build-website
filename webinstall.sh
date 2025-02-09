@@ -15,13 +15,15 @@ echo -n "Password Your Database: ";
 read passmysql
 mysql -e "CREATE DATABASE wordpress;" 
 mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$passmysql';"
-sudo apt install php php-cli php-zip libapache2-mod-php php-mysql -y
+sudo apt install php php-cli php-zip libapache2-mod-php php-mysql phpmyadmin -y
 cp /etc/apache2/mods-enabled/dir.conf dir.conf.bak
 cp support/dir.conf /etc/apache2/mods-enabled/
 cp /etc/php/*/cli/php.ini cli-php.ini.bak
 cp /etc/php/*/apache2/php.ini apache-php.ini.bak
 cp support/php.ini /etc/php/*/cli/
 cp support/php.ini /etc/php/*/apache2/
+cp /etc/phpmyadmin/apache.conf apache.conf.bak
+cp support/apache.conf /etc/phpmyadmin/
 systemctl restart apache2
 wget https://wordpress.org/latest.zip && unzip latest.zip
 mv wordpress /var/www/html/blog
