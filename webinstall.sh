@@ -6,7 +6,7 @@ sudo timedatectl set-timezone Asia/Jakarta
 sudo timedatectl set-ntp on
 sudo apt install apache2 -y
 cp /etc/apache2/apache2.conf apache2.conf.bak
-cp support/apache2.conf /etc/apahce2/
+cp support/apache2.conf /etc/apache2/
 cp /var/www/html/index.html index.html.bak
 cp support/index.html /var/www/html/
 systemctl restart apache2
