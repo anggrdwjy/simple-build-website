@@ -7,6 +7,8 @@ sudo timedatectl set-ntp on
 sudo apt install apache2 -y
 cp /etc/apache2/apache2.conf apache2.conf.bak
 cp support/apache2.conf /etc/apahce2/
+cp /var/www/html/index.html index.html.bak
+cp support/index.html /var/www/html/
 systemctl restart apache2
 sudo apt install mysql-server -y
 echo -n "Password Your Database: ";
@@ -21,8 +23,6 @@ cp /etc/php/*/apache2/php.ini apache-php.ini.bak
 cp support/php.ini /etc/php/*/cli/
 cp support/php.ini /etc/php/*/apache2/
 systemctl restart apache2
-cp /var/www/html/index.html index.html.bak
-cp support/index.html /var/www/html/
 wget https://wordpress.org/latest.zip && unzip latest.zip
 mv wordpress /var/www/html/blog
 chown $USER:$USER -R /var/www/html/blog
